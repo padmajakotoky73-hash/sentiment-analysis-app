@@ -26,15 +26,20 @@ def clean_text(text):
 @app.route("/", methods=["GET", "POST"])
 def home():
     prediction = None
+    confidence = None
 
     if request.method == "POST":
         user_input = request.form["review"]
         cleaned = clean_text(user_input)
         vectorized = vectorizer.transform([cleaned])
+        # Get prediction probabilities
+        proba = model.predict_proba(vectorized)[0]
+        confidence = round(max(proba) * 100, 2)
+
         result = model.predict(vectorized)[0]
         prediction = "Positive 😊" if result == 1 else "Negative 😡"
 
-    return render_template("index.html", prediction=prediction)
+    return render_template("index.html", prediction=prediction, confidence=confidence)
 
 
 if __name__ == "__main__":
