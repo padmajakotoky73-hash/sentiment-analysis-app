@@ -1,53 +1,43 @@
-# sentiment-analysis-app
+# Sentiment Analysis Web App
 
- Sentiment Analysis Web App (Flask + ML)
- Overview
+## Problem Statement
+Build a machine learning model that classifies movie reviews as positive or negative.
 
-This project is a Machine Learning powered web application that classifies movie reviews as Positive or Negative using Natural Language Processing (NLP).
+## Dataset
+IMDb Reviews Dataset (50,000 reviews)
 
-Built using:
-Python
-Scikit-learn
-TF-IDF Vectorization
-Logistic Regression
-Flask
+## Solution Approach
+- Text cleaning (lowercase, remove HTML, punctuation)
+- Stopword removal (NLTK)
+- TF-IDF Vectorization
+- Logistic Regression classifier
+- Model saved using joblib
+- Flask web app for deployment
 
-Problem Statement
+## Tech Stack
+- Python
+- Flask
+- Scikit-learn
+- NLTK
+- Pandas
 
-Manual analysis of large volumes of text reviews is inefficient.
-This project automates sentiment classification using a trained ML model on the IMDB dataset.
+## How to Run Locally
 
-Solution Approach
+1. Create virtual environment: py -3.11 -m venv .venv
+.venv\Scripts\activate
 
-Preprocessed IMDB dataset (50K reviews)
-Converted text to numerical features using TF-IDF
-Trained Logistic Regression classifier
-Saved trained model
-Built Flask web interface for real-time predictions
+2. Install dependencies:pip install -r requirements.txt
 
-Project Structure
-Sentiment-Analysis-App/
-│
-├── app.py
-├── train.py
-├── model/
-├── templates/
-├── requirements.txt
-└── README.md
-Installation
-git clone https://github.com/padmajakotoky73-hash/sentiment-analysis-app.git
-cd sentiment-analysis-app
-pip install -r requirements.txt
-python app.py
-Demo
-Runs locally at:
+3. Run:python app.py
+
+Open:
 http://127.0.0.1:5000
-Dataset:
-IMDB Movie Reviews Dataset (50,000 samples)
-Not included in repository due to size constraints.
 
-Future Improvements
-Deploy to cloud (Render / Railway)
-Add confidence score
-Improve UI styling
-Try deep learning (LSTM / BERT)
+## Future Improvements
+- Add neutral sentiment
+- Deploy to cloud
+- Improve UI
+- Add probability scores
+
+---
+Built by Padmaja 
